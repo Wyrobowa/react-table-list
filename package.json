@@ -5,7 +5,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/"
+    "url": "git+ssh://git@github.com:Wyrobowa/react-table-list.git"
   },
   "main": "src/index.js",
   "scripts": {
@@ -20,19 +20,20 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "styled-components": "^5.0.0",
     "styled-normalize": "^8.0.6"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^1.7.0"
+    "prettier": "^1.19.1"
   },
   "eslintConfig": {
     "extends": "react-app"

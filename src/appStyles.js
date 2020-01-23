@@ -11,11 +11,8 @@ const GlobalStyles = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+    font-size: 14px;
+    color: #282c34;
   }
 `;
 
@@ -25,13 +22,13 @@ const AppStyle = styled.div`
 
 const Header = styled.header`
   background-color: #282c34;
-  height: 100px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 `;
 
 export {

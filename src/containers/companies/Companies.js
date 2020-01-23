@@ -6,6 +6,9 @@ import Table from '../../components/table/Table';
 // Services
 import { fetchData, fetchAllData } from '../../services/requestService';
 
+// Styles
+import { Title } from './companiesStyled';
+
 const Companies = () => {
   const [companies, setCompanies] = useState([]);
 
@@ -42,7 +45,7 @@ const Companies = () => {
 
   return (
     <>
-      <p>Companies Incomes List</p>
+      <Title>Companies Incomes List</Title>
       <Table columns={columnsNames} data={companies} />
     </>
   );

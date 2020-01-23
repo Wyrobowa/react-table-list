@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// styles
+// Styles
 import * as Styled from './tableStyled';
 
 const Table = ({ columns, data }) => (
@@ -9,7 +9,7 @@ const Table = ({ columns, data }) => (
     <Styled.Head>
       <Styled.Row>
         {columns.map((column) => (
-          <th key={column}>{column}</th>
+          <Styled.Field key={column}>{column}</Styled.Field>
         ))}
       </Styled.Row>
     </Styled.Head>
@@ -17,12 +17,12 @@ const Table = ({ columns, data }) => (
     <Styled.Body>
       {data.map((row) => (
         <Styled.Row key={row.id}>
-          <td>{row.id}</td>
-          <td>{row.name}</td>
-          <td>{row.city}</td>
-          <td>1000</td>
-          <td>2000</td>
-          <td>3000</td>
+          <Styled.Field>{row.id}</Styled.Field>
+          <Styled.Field>{row.name}</Styled.Field>
+          <Styled.Field>{row.city}</Styled.Field>
+          <Styled.Field>1000</Styled.Field>
+          <Styled.Field>2000</Styled.Field>
+          <Styled.Field>3000</Styled.Field>
         </Styled.Row>
       ))}
     </Styled.Body>
