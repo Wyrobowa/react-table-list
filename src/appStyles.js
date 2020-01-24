@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
 
 const AppStyle = styled.div`
   text-align: center;
+  min-height: 100vh;
 `;
 
 const Header = styled.header`
