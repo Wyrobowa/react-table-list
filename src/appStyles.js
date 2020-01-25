@@ -13,6 +13,14 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
     color: #282c34;
+    
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -23,7 +31,7 @@ const AppStyle = styled.div`
 
 const Header = styled.header`
   background-color: #282c34;
-  height: 80px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;

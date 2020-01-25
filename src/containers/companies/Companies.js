@@ -21,15 +21,34 @@ const Companies = () => {
   const [filter, setFilter] = useState('All');
   const [selectedPage, setSelectedPage] = useState(1);
   const [sortedColumn, setSortedColumn] = useState('');
+  const [sortedColumnType, setSortedColumnType] = useState('int');
   const [sortDirection, setSortDirection] = useState(null);
 
-  const columnsNames = [
-    'id',
-    'name',
-    'city',
-    'totalIncome',
-    'averageIncome',
-    'lastMonthIncome',
+  const columns = [
+    {
+      id: 'id',
+      type: 'int',
+    },
+    {
+      id: 'name',
+      type: 'string',
+    },
+    {
+      id: 'city',
+      type: 'string',
+    },
+    {
+      id: 'totalIncome',
+      type: 'int',
+    },
+    {
+      id: 'averageIncome',
+      type: 'int',
+    },
+    {
+      id: 'lastMonthIncome',
+      type: 'int',
+    },
   ];
 
   const filterOptions = [
@@ -73,11 +92,14 @@ const Companies = () => {
   };
 
   const handleChangeFilter = ({ target }) => {
-    setSelectedPage(target.getAttribute('data-index'));
+    const pageNumber = parseInt(target.getAttribute('data-index'), 10);
+    setSelectedPage(pageNumber);
   };
 
-  const handleChangeSort = ({ target }) => {
-    setSortedColumn(target.getAttribute('data-column'));
+  const handleChangeSort = ({ currentTarget }) => {
+    setSortedColumn(currentTarget.getAttribute('data-column'));
+    setSortedColumnType(currentTarget.getAttribute('data-type'));
+    setFilter('All');
 
     if (sortDirection === null || sortDirection === 'desc') {
       setSortDirection('asc');
@@ -99,12 +121,14 @@ const Companies = () => {
       <Styled.Body>
         <FilteredData
           filter={filter}
-          columns={columnsNames}
+          columns={columns}
           data={companies}
           changeFilter={handleChangeFilter}
+          setFilter={setFilter}
           selectedPage={selectedPage}
           changeSort={handleChangeSort}
           sortedColumn={sortedColumn}
+          sortedColumnType={sortedColumnType}
           sortDirection={sortDirection}
         />
       </Styled.Body>

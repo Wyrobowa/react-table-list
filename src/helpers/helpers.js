@@ -26,3 +26,44 @@ export const getLastMonthTotalValue = (data) => {
 
   return getTotalValue(lastMonthValues);
 };
+
+export const getSortedData = (data, sortedColumn, sortedColumnType, sortDirection) => {
+  if (sortedColumnType === 'int') {
+    return data
+      .sort((a, b) => {
+        switch (sortDirection) {
+          case 'asc':
+            return a[sortedColumn] - b[sortedColumn];
+          case 'desc':
+            return b[sortedColumn] - a[sortedColumn];
+          default:
+            return true;
+        }
+      });
+  }
+
+  return data
+    .sort((a, b) => {
+      switch (sortDirection) {
+        case 'asc':
+          return a[sortedColumn] > b[sortedColumn] ? 1 : -1;
+        case 'desc':
+          return b[sortedColumn] < a[sortedColumn] ? -1 : 1;
+        default:
+          return true;
+      }
+    });
+};
+
+export const getFilteredData = (data, filter, selectedPage) => data
+  .filter((item, index) => (
+    (filter === 'All')
+    || (
+      (selectedPage === 1)
+      && (index <= (filter * selectedPage) - 1)
+    ) || (
+      (selectedPage > 1)
+      && (index > (filter * (selectedPage - 1)) - 1)
+      && (index <= (filter * selectedPage) - 1)
+    )
+  ));

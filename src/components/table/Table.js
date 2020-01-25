@@ -7,18 +7,24 @@ import { getNumberWithSpaces, getWordsFromCamelcase } from '../../helpers/helper
 // Styles
 import * as Styled from './tableStyled';
 
-const Table = ({ columns, data, handleSort }) => (
+const Table = ({
+ columns, data, handleSort, sortDirection, sortedColumn,
+}) => (
   <>
     <Styled.Table>
       <Styled.Head>
         <Styled.Row>
           {columns.map((column) => (
             <Styled.Field
-              key={column}
+              key={column.id}
               onClick={handleSort}
-              data-column={column}
+              data-column={column.id}
+              data-type={column.type}
             >
-              {getWordsFromCamelcase(column)}
+              <span>{getWordsFromCamelcase(column.id)}</span>
+              {sortedColumn && sortedColumn === column.id && (
+                <Styled.Arrow direction={sortDirection} />
+              )}
             </Styled.Field>
           ))}
         </Styled.Row>
@@ -46,10 +52,14 @@ Table.propTypes = {
   columns: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
   handleSort: PropTypes.func,
+  sortDirection: PropTypes.string,
+  sortedColumn: PropTypes.string,
 };
 
 Table.defaultProps = {
   handleSort: null,
+  sortDirection: null,
+  sortedColumn: null,
 };
 
 export default Table;

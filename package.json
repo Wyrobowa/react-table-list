@@ -7,14 +7,12 @@
     "type": "git",
     "url": "git+ssh://git@github.com:Wyrobowa/react-table-list.git"
   },
+  "homepage": "https://github.com/Wyrobowa/react-table-list",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
-    "lint": "npm run lint:js lint:css",
-    "lint:js": "echo '=> linting js' && eslint src",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "lint": "echo '=> linting js' && eslint src",
+    "build": "react-scripts build"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
@@ -37,5 +35,17 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
